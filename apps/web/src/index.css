@@ -1,0 +1,449 @@
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Tambo Design System
+  A warm, human-centered design system for modern project management
+*/
+
+@layer base {
+  :root {
+    /* Core brand colors - Warm & inviting */
+    --background: 30 25% 98%;
+    --foreground: 25 30% 12%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 25 30% 12%;
+
+    --popover: 30 20% 99%;
+    --popover-foreground: 25 30% 12%;
+
+    /* Primary - Warm coral orange */
+    --primary: 17 88% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft peach */
+    --secondary: 25 60% 94%;
+    --secondary-foreground: 25 40% 25%;
+
+    /* Muted - Warm beige */
+    --muted: 30 30% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - Amber glow */
+    --accent: 38 92% 60%;
+    --accent-foreground: 25 40% 15%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 17 88% 55%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Warm charcoal */
+    --sidebar-background: 25 20% 12%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 17 88% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 20% 18%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 17 88% 55%;
+
+    /* Extended palette */
+    --coral: 17 88% 55%;
+    --coral-light: 17 88% 65%;
+    --coral-dark: 17 88% 45%;
+    
+    --peach: 25 80% 85%;
+    --peach-light: 25 80% 92%;
+    
+    --amber: 38 92% 60%;
+    --amber-light: 38 92% 75%;
+    
+    --charcoal: 25 20% 12%;
+    --charcoal-light: 25 15% 25%;
+    
+    --cream: 30 25% 96%;
+    --cream-dark: 30 20% 90%;
+
+    /* Status colors */
+    --status-todo: 220 15% 55%;
+    --status-inprogress: 38 92% 55%;
+    --status-review: 280 60% 55%;
+    --status-done: 145 60% 45%;
+
+    /* Priority colors */
+    --priority-critical: 0 72% 55%;
+    --priority-high: 17 88% 55%;
+    --priority-medium: 38 92% 55%;
+    --priority-low: 145 50% 50%;
+
+    /* Issue type colors */
+    --issue-epic: 280 60% 55%;
+    --issue-story: 145 60% 45%;
+    --issue-task: 210 80% 55%;
+    --issue-bug: 0 72% 55%;
+    --issue-subtask: 25 15% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(17 88% 55%), hsl(38 92% 60%));
+    --gradient-warm: linear-gradient(135deg, hsl(25 80% 85%), hsl(38 92% 75%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(25 20% 14%), hsl(25 20% 10%));
+    --gradient-chatbot: linear-gradient(135deg, hsl(17 88% 55%), hsl(17 88% 45%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(25 30% 12% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(25 30% 12% / 0.12);
+    --shadow-large: 0 8px 32px -8px hsl(25 30% 12% / 0.16);
+    --shadow-glow: 0 0 20px -5px hsl(17 88% 55% / 0.3);
+    --shadow-chatbot: 0 8px 40px -10px hsl(17 88% 55% / 0.4);
+
+    /* Typography */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 25 18% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 25 18% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 17 88% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 25 40% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 18%;
+    --input: 25 15% 18%;
+    --ring: 17 88% 55%;
+
+    --sidebar-background: 25 20% 6%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 17 88% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 18% 12%;
+    --sidebar-accent-foreground: 30 20% 92%;
+    --sidebar-border: 25 15% 15%;
+    --sidebar-ring: 17 88% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth theme transition */
+  html.light,
+  html.dark {
+    color-scheme: light dark;
+  }
+
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* Card styles */
+  .card-elevated {
+    @apply bg-card rounded-xl border shadow-soft transition-all duration-200;
+  }
+
+  .card-elevated:hover {
+    @apply shadow-medium;
+  }
+
+  .card-interactive {
+    @apply card-elevated cursor-pointer;
+  }
+
+  .card-interactive:hover {
+    @apply border-primary/20 shadow-glow;
+    transform: translateY(-1px);
+  }
+
+  /* Issue card styles */
+  .issue-card {
+    @apply bg-card rounded-lg border p-3 cursor-grab transition-all duration-200;
+  }
+
+  .issue-card:hover {
+    @apply border-primary/30 shadow-medium;
+  }
+
+  .issue-card.dragging {
+    @apply shadow-large rotate-2 scale-105 border-primary/50;
+    cursor: grabbing;
+  }
+
+  /* Status badges */
+  .status-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-todo {
+    @apply bg-[hsl(var(--status-todo)/0.15)] text-[hsl(var(--status-todo))];
+  }
+
+  .status-inprogress {
+    @apply bg-[hsl(var(--status-inprogress)/0.15)] text-[hsl(var(--status-inprogress))];
+  }
+
+  .status-review {
+    @apply bg-[hsl(var(--status-review)/0.15)] text-[hsl(var(--status-review))];
+  }
+
+  .status-done {
+    @apply bg-[hsl(var(--status-done)/0.15)] text-[hsl(var(--status-done))];
+  }
+
+  /* Priority badges */
+  .priority-critical {
+    @apply bg-[hsl(var(--priority-critical)/0.15)] text-[hsl(var(--priority-critical))];
+  }
+
+  .priority-high {
+    @apply bg-[hsl(var(--priority-high)/0.15)] text-[hsl(var(--priority-high))];
+  }
+
+  .priority-medium {
+    @apply bg-[hsl(var(--priority-medium)/0.15)] text-[hsl(var(--priority-medium))];
+  }
+
+  .priority-low {
+    @apply bg-[hsl(var(--priority-low)/0.15)] text-[hsl(var(--priority-low))];
+  }
+
+  /* Issue type badges */
+  .issue-epic {
+    @apply bg-[hsl(var(--issue-epic)/0.15)] text-[hsl(var(--issue-epic))];
+  }
+
+  .issue-story {
+    @apply bg-[hsl(var(--issue-story)/0.15)] text-[hsl(var(--issue-story))];
+  }
+
+  .issue-task {
+    @apply bg-[hsl(var(--issue-task)/0.15)] text-[hsl(var(--issue-task))];
+  }
+
+  .issue-bug {
+    @apply bg-[hsl(var(--issue-bug)/0.15)] text-[hsl(var(--issue-bug))];
+  }
+
+  .issue-subtask {
+    @apply bg-[hsl(var(--issue-subtask)/0.15)] text-[hsl(var(--issue-subtask))];
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+
+  .bg-gradient-chatbot {
+    background: var(--gradient-chatbot);
+  }
+
+  /* Shadow utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-chatbot {
+    box-shadow: var(--shadow-chatbot);
+  }
+
+  /* Chatbot button pulse animation */
+  .chatbot-pulse {
+    @apply relative;
+  }
+
+  .chatbot-pulse::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-gradient-chatbot opacity-50;
+    animation: chatbot-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes chatbot-ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    75%, 100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+
+  /* Column styles */
+  .kanban-column {
+    @apply bg-muted/50 rounded-xl p-3 min-h-[500px];
+  }
+
+  .kanban-column-header {
+    @apply flex items-center justify-between mb-3 px-1;
+  }
+
+  /* Animations */
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.3s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--gradient-primary);
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Truncate with ellipsis */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

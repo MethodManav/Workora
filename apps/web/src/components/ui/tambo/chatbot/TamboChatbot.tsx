@@ -1,20 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  MessageCircle,
-  X,
-  Sparkles,
-  Minimize2,
-  Maximize2,
-} from 'lucide-react';
-import { TamboProvider } from '@tambo-ai/react';
-import { MessageThreadFull } from '../../message-thread-full';
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, X, Sparkles, Minimize2, Maximize2 } from "lucide-react";
+import { TamboProvider } from "@tambo-ai/react";
+import { MessageThreadFull } from "../../message-thread-full";
+import { tools } from "../tambo/Tools";
 
 export function TamboChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
 
   useEffect(() => {
     if (isOpen && !isMinimized) {
@@ -22,10 +16,8 @@ export function TamboChatbot() {
     }
   }, [isOpen, isMinimized]);
 
-
   return (
-
-    <TamboProvider apiKey={import.meta.env.VITE_TAMBO_API_KEY} > {/* Ensure TamboProvider is included at a higher level in your app */}
+    <TamboProvider apiKey={import.meta.env.VITE_TAMBO_API_KEY} tools={tools}>
       {/* Floating Button */}
       <AnimatePresence>
         {!isOpen && (
@@ -53,11 +45,11 @@ export function TamboChatbot() {
               x: 0,
               scale: 1,
               // Use available viewport space but cap at a reasonable pixel height
-              height: isMinimized ? 80 : 'min(200vh,800px)',
-              width: isMinimized ? 90 : 'min(90vw,600px)',
+              height: isMinimized ? 80 : "min(200vh,800px)",
+              width: isMinimized ? 90 : "min(90vw,600px)",
             }}
             exit={{ opacity: 0, x: 100, scale: 0.95 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="fixed bottom-6 right-6 z-50 w-96 bg-card rounded-2xl shadow-large border border-border overflow-hidden flex flex-col"
           >
             {/* Header */}
@@ -70,7 +62,9 @@ export function TamboChatbot() {
                   <h3 className="font-heading font-semibold text-primary-foreground text-sm">
                     Tambo
                   </h3>
-                  <p className="text-xs text-primary-foreground/70">AI Assistant</p>
+                  <p className="text-xs text-primary-foreground/70">
+                    AI Assistant
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-1">
@@ -115,6 +109,6 @@ export function TamboChatbot() {
           </motion.div>
         )}
       </AnimatePresence>
-      </TamboProvider>
+    </TamboProvider>
   );
 }
